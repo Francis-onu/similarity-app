@@ -2,12 +2,17 @@ import { getToken } from 'next-auth/jwt'
 import { withAuth } from 'next-auth/middleware'
 import { NextResponse } from 'next/server'
 import { Ratelimit } from '@upstash/ratelimit'
-import { Redis } from '@upstash/redis'
+import { Redis}  from '@upstash/redis'
+
+
 
 const redis = new Redis({
-  url: process.env.REDIS_URL,
-  token: process.env.REDIS_SECRET,
+ url:'https://unified-lamprey-43549.upstash.io',
+ token: 'AaodASQgN2JjZDNlNjAtNzY4ZS00ZGNiLWFhNmYtMzNlOTg4NGYxNzIyMGJhYmZjYmYxODYxNDk3ZWI1ZDY5MTE1N2ZmNWJiMzc=',
+ 
 })
+   
+
 
 const ratelimit = new Ratelimit({
   redis: redis,
